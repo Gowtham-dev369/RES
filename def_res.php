@@ -9,7 +9,9 @@ if(isset($_GET['id'])){
     $sql = "select food_img,fname,sname from food,store where food.sid=store.sid and food.sid = $id";
     $result= mysqli_query($conn,$sql);
     $datas = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
     $ssname = $datas[0]['sname'];
+    //O^v#6#cTqE2NmBFzvsae
 }
 ?>
 

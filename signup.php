@@ -1,29 +1,19 @@
-<?php
+<?php 
 require('./database/db_connect.php');
-session_start();
 
-if (isset($_POST["usrname"],$_POST["pass"]))
+if (isset($_POST["name"],$_POST["usrname"],$_POST["pass"],$_POST["email"]))
 {
+    $name = $_POST['name'];
     $username=$_POST["usrname"];
-    $password=$_POST["pass"];
+    $pass=$_POST["pass"];
+    $email =$_POST['email'];
 
-    $sql = "SELECT cid FROM cust WHERE usrname='$username' and pass = '$password' ";
-    $result=mysqli_query($conn,$sql);
-    $count=mysqli_num_rows($result);
-    print_r($count);
+    $sql = " insert into cust(cname,usrname,pass,email) values('$name','$username','$pass','$email')";
+    $result = mysqli_query($conn,$sql);
 
-    if($count==1) {
-        $_SESSION['login_user']=$username;
-        header("Location: user.php");
-    }
-    else {
-        echo '<script language="javascript">';
-        echo 'alert("Invalid Username or Password")';
-        echo '</script>';
-    }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +37,7 @@ html{
     justify-content: center;
 }
 form{
-    height: 300px;
+    height: 400px;
     width: 300px;
     display: flex;
     align-items: center;
@@ -69,9 +59,13 @@ label,input{
 </head>
 <body>
 
-<form action="log.php" method="POST">
+<form action="signup.php" method="POST">
  <div class="page">
-    <label for="name">USER NAME</label>
+    <label for="name">Name</label>
+    <br>
+    <input type="text" name="name">
+<br>
+    <label for="usrname">USER NAME</label>
     <br>
     <input type="text" name="usrname">
     <br>
@@ -79,9 +73,14 @@ label,input{
     <br>
     <input type="text" name="pass">
     <br> 
+    <label for="email">Email</label>
+    <br>
+    <input type="email" name="email">
+    <br>
     <input type="submit" class="btn" value="SignIn">
     </div> 
-
+    
 </form>
-<a href="signup.php">Dont have an account</a>
-
+<a href="log.php">Already have a Acount? LogIn</a>
+</body>
+</html>
