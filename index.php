@@ -9,7 +9,7 @@ require('./pages/header.php')
                     <h1>Good Foods Here</h1>
                     <p>Book table and search restaurants</p>
                     <div class="mt-4">
-                        <button class="btn btn-warning main-btn px-4 py-2">Book Now</button>
+                        <!-- <button class="btn btn-warning main-btn px-4 py-2">Book Now</button> -->
                     </div>
                 </div>
                </div> 

@@ -43,16 +43,38 @@ if(isset($_GET['id'])){
   <div class="card-body">
     <h2 class="card-title text-center"><?php echo $data['fname']?></h2>
   </div>
-</div>
-
-        <?php }  ?> 
+</div>      
+ <?php }  ?> 
         </div>
+   </div>
 
+
+
+
+   <div class="container text-center">
+   <h2 class="py-5 ">Reserve Table</h2>
+   <form action="book.php" method="post">
+    <label for="">Date</label>
+    <input type="date" name="date" id="">
+    
+    <?php
+    $table_result=mysqli_query($conn,"SELECT `tname`, `tid` FROM `tabl`");
+    echo '<select class= "select" name="table_name">';
+    echo '<option selected disabled>Table For</option>';
+    while($row = mysqli_fetch_array($table_result)){
+    // print_r($row);
+    $display=$row['tname'];
+    $iid = $row['tid'];
+    echo '<option value="'.$iid.'">'.$display.'</option>';
+    }
+    echo'</select>'
+    ?>
+<input type="submit" name="boo" value="Book Table">
+   </form>
    </div>
    <script>var nav = document.querySelector('nav');
        nav.classList.add('bg-dark');
-
-</script>
+   </script>
 </body>
 </html>
 

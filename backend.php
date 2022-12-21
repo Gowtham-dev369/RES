@@ -36,7 +36,7 @@ $result = mysqli_query($conn,$ssql);
 $fdatas = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $fdata=$fdatas[0];
 // table 
-$tsql='select count(*) from tabl';
+$tsql='select count(*) from cust';
 $result = mysqli_query($conn,$tsql);
 $tdatas = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $tdata=$tdatas[0];
@@ -64,7 +64,7 @@ $tdata=$tdatas[0];
 	<div class="card">
 	<box-icon color="white" name='table' ></box-icon>
 	<p> <?= $tdata['count(*)'] ?></p>
-	<p>Tables</p>
+	<p>People</p>
 	</div>
 	</a>
 	</div>
@@ -119,7 +119,6 @@ while($row = mysqli_fetch_array($class_result)){
 	<label for="res_img">images</label>
 	<input type="file" name="res_img">
     <input class="sub" type="submit" value="Submit">
-
     </div>
 </form>   
 <br>

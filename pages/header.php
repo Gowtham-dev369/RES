@@ -39,7 +39,7 @@ $name = $_SESSION['login_user'] ?? "login";
         <?php 
         if($name == 'login'){
           echo "<a href='./user.php' class='btn btn-warning'> $name </a>";
-        }
+        } 
         else{
           echo "<a href='./user.php' class='btn btn-warning'> $name </a>";
         }

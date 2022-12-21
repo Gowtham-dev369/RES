@@ -34,7 +34,7 @@ if (isset($_POST['id'],$_POST['fname'])){
     $id = mysqli_real_escape_string($conn,$_POST['id']);
     $fname = mysqli_real_escape_string($conn,$_POST['fname']); 
     $img =  $_FILES["food_img"]["name"];
- echo $img;
+//  echo $img;
     if(!isset($_POST['store_name'])){
     $store_name=null;
     }
